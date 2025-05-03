@@ -1,0 +1,116 @@
+Installationsanleitung: Aquarium Überwachung & Steuerung
+Version: 1.0
+Datum: 03.05.2025
+
+1. Einleitung
+Diese Anleitung beschreibt die Schritte zur Installation und Einrichtung des Systems zur Überwachung (Temperatur, Durchfluss) und Steuerung (Servo) eines Aquariums mittels ESP32, Node-RED, MQTT und MariaDB.
+
+2. Voraussetzungen
+	Hardware:
+
+		ESP32 Mikrocontroller (z.B. ESP32-S3)
+		Temperatursensor DS18B20
+		Durchflusssensor YF-S201
+		Servo-Motor
+		Farbdisplay ST7789 (SPI)
+		Verbindungskabel (Jumper Wires)
+		Stromversorgung
+		Computer zur Einrichtung
+		Server/Rechner für Node-RED, MariaDB und MQTT Broker (kann derselbe oder verschiedene sein)
+		Zugang zum WLAN-Netzwerk
+
+	Software:
+
+		MicroPython Firmware für den ESP32
+		Ein Tool zum Flashen des ESP32 und Übertragen von Dateien (z.B. Thonny)
+		Node.js und NPM (für Node-RED)
+		Node-RED
+		MariaDB Server
+		Ein MQTT Broker (z.B. Mosquitto)
+		Ein SQL-Client (z.B. mysql-Kommandozeile, HeidiSQL)
+
+Schritt 1: Hardware-Aufbau
+Verbinde die Sensoren, das Display und den Servo mit den korrekten GPIO-Pins des ESP32 gemäß der Pin-Konfiguration im ESP32-Python-Skript oder des Schaltplans (siehe Abschnitt Konfiguration in der README). Achte auf korrekte Verkabelung von VCC, GND und Datenleitungen. Pull-Up-Widerstand für DS18B20 beachten.
+Verbinde den ESP32 mit einer Stromquelle.
+
+Schritt 2: ESP32 einrichten
+MicroPython flashen: Installiere die MicroPython-Firmware auf dem ESP32 mithilfe eines geeigneten Tools (z.B. Thonny).
+Bibliotheken übertragen: Kopiere die benötigten MicroPython-Bibliotheken in das Dateisystem des ESP32 (ins Hauptverzeichnis oder nach /lib):
+umqtt/simple.py
+onewire.py
+ds18x20.py
+st7789py.py
+vga2_16x16.py
+Hauptskript übertragen: Kopiere das Python-Hauptskript auf den ESP32.
+Konfiguration anpassen: Öffne das Hauptskript auf dem ESP32 (z.B. mit Thonny) und passe die Konfigurationswerte an:
+wlan_ssid, wlan_passwort
+mqtt_broker (IP-Adresse oder Hostname)
+mqtt_port (Standard: 1883)
+mqtt_user, mqtt_password (falls dein Broker Authentifizierung benötigt)
+Überprüfe die Pin-Nummern für Sensoren, Servo und Display.
+Ggf. yfs201_kalibrierungsfaktor anpassen.
+
+Testen: Starte das Skript auf dem ESP32 (z.B. über Thonny). Überprüfe die Ausgaben in der Konsole, ob WLAN- und MQTT-Verbindung erfolgreich sind und Sensorwerte gelesen werden.
+
+Schritt 3: MQTT Broker einrichten
+Installiere und konfiguriere einen MQTT Broker (z.B. Mosquitto) auf einem Server oder Rechner im Netzwerk, der für den ESP32 und Node-RED erreichbar ist.
+Notiere dir die IP-Adresse/Hostname und den Port (Standard 1883).
+Richte ggf. Benutzer und Passwörter für den Zugriff ein und notiere sie.
+
+Schritt 4: MariaDB Datenbank einrichten
+Installiere den MariaDB Server, falls noch nicht geschehen.
+Verbinde dich mit dem MariaDB Server als administrativer Benutzer (z.B. root): mysql -u root -p
+
+Datenbank erstellen:
+SQL
+
+CREATE DATABASE nodered_daten CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+Tabelle erstellen:
+SQL
+
+USE nodered_daten;
+CREATE TABLE messwerte (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    zeitstempel TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    temperatur DECIMAL(4,2) NULL,
+    durchfluss DECIMAL(5,2) NULL,
+    servo_aktiv TINYINT(1) NULL COMMENT '0=OFF, 1=ON,);
+
+Passe den Typ von servo_aktiv an das an, was dein Node-RED Flow sendet (1/0 oder "ON"/"OFF")!
+
+Benutzer erstellen und Rechte vergeben (Ersetze 'nodered_user' und 'PasswortFuerNodeRed' durch sichere Werte):
+SQL
+
+CREATE USER 'nodered_user'@'localhost' IDENTIFIED BY 'PasswortFuerNodeRed';
+-- Erlaube dem Benutzer Zugriff auf die Tabelle (passe Rechte bei Bedarf an)
+GRANT SELECT, INSERT, UPDATE, DELETE ON nodered_daten.messwerte TO 'nodered_user'@'localhost';
+-- Wenn Node-RED auf einem anderen Host läuft, ersetze 'localhost' durch die IP des Node-RED Servers.
+
+FLUSH PRIVILEGES;
+EXIT;
+
+7. Schritt 5: Node-RED einrichten
+Installiere Node.js und Node-RED, falls noch nicht geschehen.
+Starte Node-RED.
+Öffne den Node-RED Editor im Browser.
+
+Nodes installieren: Gehe zu Menü (☰) -> "Manage palette" -> "Install". Suche und installiere:
+node-red-dashboard
+node-red-node-mysql
+
+Flow importieren: Gehe zu Menü (☰) -> "Import". Füge den JSON-Code des Flows ein und importiere ihn.
+
+Verbindungen konfigurieren:
+Suche die MQTT In und MQTT Out Nodes im Flow. Doppelklicke sie und bearbeite den MQTT-Broker-Konfigurationsnode: Stelle sicher, dass Server-IP/Hostname, Port und ggf. Benutzer/Passwort korrekt sind und mit den ESP32-Einstellungen übereinstimmen.
+
+Suche den MariaDB (mysql) Node im Flow, der die Daten in die Datenbank schreibt. Doppelklicke ihn und bearbeite den MariaDB-Verbindungs-Konfigurationsnode: Trage Host (oft localhost), Port (oft 3306), Benutzer (nodered_user), Passwort (PasswortFuerNodeRed) und Datenbank (nodered_daten) ein. Teste die Verbindung.
+
+Flow deployen: Klicke auf den "Deploy"-Button.
+
+8. Schritt 6: Systemstart & Test
+Stelle sicher, dass der MQTT Broker und MariaDB laufen.
+Starte den ESP32 (er sollte sich verbinden und Daten senden).
+Überprüfe die Debug-Ausgaben in Node-RED auf Fehler.
+Öffne das Node-RED Dashboard (normalerweise http://<Node-RED-IP>:1880/ui). Werden Daten angezeigt? Funktionieren die Steuerelemente?
+Überprüfe mit einem SQL-Client, ob neue Daten korrekt in der messwerte-Tabelle ankommen.
