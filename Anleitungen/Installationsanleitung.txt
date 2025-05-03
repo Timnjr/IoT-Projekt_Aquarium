@@ -98,8 +98,9 @@ Starte Node-RED.
 Nodes installieren: Gehe zu Menü (☰) -> "Manage palette" -> "Install". Suche und installiere:
 node-red-dashboard
 node-red-node-mysql
+node-red-contrib-ui-led
 
-Flow importieren: Gehe zu Menü (☰) -> "Import". Füge den JSON-Code des Flows ein und importiere ihn.
+Flow importieren: Gehe zu Menü (☰) -> "Import". Füge die JSON-Datei "noderedflow.json" ein und importiere ihn.
 
 Verbindungen konfigurieren:
 Suche die MQTT In und MQTT Out Nodes im Flow. Doppelklicke sie und bearbeite den MQTT-Broker-Konfigurationsnode: Stelle sicher, dass Server-IP/Hostname, Port und ggf. Benutzer/Passwort korrekt sind und mit den ESP32-Einstellungen übereinstimmen.
