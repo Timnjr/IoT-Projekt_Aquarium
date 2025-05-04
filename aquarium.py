@@ -6,7 +6,7 @@
 # und einem Node-Red Dashboard mithilfe von MQTT
 # Autor: Tim-Luca Neujahr
 # Erstellt am 22.03.2025
-# Letztes Update: 03.05.2025
+# Letztes Update: 04.05.2025
 # Version: 1.0
 # ======================================================================
 
@@ -128,12 +128,12 @@ def verbinde_mqtt(): #Baut eine Verbindung zum konfigurierten MQTT-Broker auf
     global mqtt_client
     if mqtt_client is None:
         mqtt_client = MQTTClient(client_id, mqtt_broker, port=mqtt_port, user=mqtt_user, password=mqtt_password)
-        mqtt_client.set_callback(mqtt_callback) # NEU: Callback-Funktion registrieren
+        mqtt_client.set_callback(mqtt_callback)
     try:
         print("Verbinde mit MQTT Broker...")
         mqtt_client.connect()
         print("MQTT verbunden.")
-        # NEU: Servo-Befehls-Topic abonnieren
+        # Servo-Befehls-Topic abonnieren
         mqtt_client.subscribe(mqtt_subscribe_servo_thema)
         print(f"MQTT Topic abonniert: {mqtt_subscribe_servo_thema.decode()}")
         return True
@@ -262,7 +262,6 @@ except Exception as e: print(f"FEHLER Durchflusssensor Init: {e}")
 print("Init Servo...")
 try:
     servo_pwm = machine.PWM(machine.Pin(servo_pin), freq=servo_pwm_frequenz)
-    # NEU: Verwende globale Variable für initialen Zustand
     initial_winkel = servo_inaktive_position # Startet standardmäßig auf OFF
     aktueller_servo_zustand_on = False
     setze_servo_winkel(initial_winkel)
@@ -304,7 +303,7 @@ while True:
 
     # --- 2. Sensoren auslesen ---
     temperatur_aktuell = lese_temperatur()
-    durchfluss_aktuell = 9 # Gibt -1.0 zurück wenn Messintervall zu kurz ist
+    durchfluss_aktuell = berechne_flussrate() # Gibt -1.0 zurück wenn Messintervall zu kurz ist
 
     # --- 3. Daten für MQTT vorbereiten ---
     werte_fuer_mqtt = {}
