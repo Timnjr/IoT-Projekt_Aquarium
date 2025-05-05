@@ -1,6 +1,6 @@
-Bedienungsanleitung: Aquarium Überwachung & Steuerung Dashboard
+Bedienungsanleitung: Strömungsmessung eines Aquarienfilters
 Version: 1.0
-Datum: 02.05.2025
+Datum: 05.05.2025
 
 1. Einleitung
 Diese Anleitung beschreibt die Bedienung des Node-RED Dashboards zur Überwachung deiner Aquarium-Werte (Temperatur, Durchfluss) und zur Steuerung des angeschlossenen Servos.
@@ -23,7 +23,9 @@ Handbetrieb EIN: Mit diesem Schalter wählst du zwischen den beiden Modi für de
 	AUTO: Der Servo wird automatisch gesteuert, basierend auf dem Vergleich zwischen dem aktuellen Durchfluss und dem eingestellten Schwellenwert.
 	Handbetrieb: Du kannst den Servo direkt über den "Servo Handbetrieb"-Schalter ein- und ausschalten.
 
-Schwellenwert (L/min): Dieses Eingabefeld ist nur im AUTO-Modus relevant. Hier stellst du ein, unterhalb welcher Durchflussrate der Servo aktiviert werden soll.
+Schwellenwert EIN (L/min): Dieses Eingabefeld ist nur im AUTO-Modus relevant. Hier stellst du ein, unterhalb welcher Durchflussrate der Servo aktiviert werden soll.
+
+Schwellenwert AUS (L/min): Dieses Eingabefeld ist nur im AUTO-Modus relevant. Hier stellst du ein, oberhalb welcher Durchflussrate der Servo wieder deaktiviert werden soll.
 
 Servo Handbetrieb Schalter: Mit diesem Schalter kannst du den Servo direkt ein- oder ausschalten. Wichtig: Dieser Schalter ist nur aktiv und bedienbar, wenn der "Handbetrieb EIN"-Schalter auf EIN steht. Im AUTO-Modus ist er ausgegraut.
 

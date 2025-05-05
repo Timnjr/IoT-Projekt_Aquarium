@@ -1,6 +1,6 @@
-Installationsanleitung: Aquarium Überwachung & Steuerung
+Installationsanleitung: Strömungsmessung eines Aquarienfilters
 Version: 1.0
-Datum: 03.05.2025
+Datum: 05.05.2025
 
 1. Einleitung
 Diese Anleitung beschreibt die Schritte zur Installation und Einrichtung des Systems zur Überwachung (Temperatur, Durchfluss) und Steuerung (Servo) eines Aquariums mittels ESP32, Node-RED, MQTT und MariaDB.

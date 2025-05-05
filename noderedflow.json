@@ -1,6 +1,6 @@
 [
     {
-        "id": "2c332c1972a41a76",
+        "id": "99696e55a19fa296",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "1fc33682e419a5d9",
+        "id": "0590783000b66aa5",
         "type": "mqtt in",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "ESP32-Messwerte",
         "topic": "esp32/aquariumwerte",
         "qos": "0",
@@ -20,20 +20,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 390,
-        "y": 240,
+        "x": 310,
+        "y": 200,
         "wires": [
             [
-                "cd9e4af84ac20610",
-                "772070e7d808f130",
-                "0c2b93e17d333c68"
+                "030727d6473e5621",
+                "7a9c046125fa96b5",
+                "e5a61be626097cb1"
             ]
         ]
     },
     {
-        "id": "cd9e4af84ac20610",
+        "id": "030727d6473e5621",
         "type": "function",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Temperatur weitergeben",
         "func": "var temperatur = {payload: msg.payload.temperatur};\nreturn temperatur;",
         "outputs": 1,
@@ -42,19 +42,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 180,
+        "x": 590,
+        "y": 140,
         "wires": [
             [
-                "39f94a391dd53e74",
-                "ba1bd5f4b94668f7"
+                "5664cc2264938fdf",
+                "cc69d697419b7fcf"
             ]
         ]
     },
     {
-        "id": "772070e7d808f130",
+        "id": "7a9c046125fa96b5",
         "type": "function",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Durchfluss weitergeben",
         "func": "var durchfluss = {payload: msg.payload.durchfluss};\nreturn durchfluss;",
         "outputs": 1,
@@ -63,20 +63,20 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 260,
+        "x": 590,
+        "y": 220,
         "wires": [
             [
-                "cbfd74bf359b6e2d",
-                "b03dc2c5b33ef29e",
-                "1eba0b0b1890494d"
+                "9b5b9326b89817fc",
+                "8def0e16f5d49f04",
+                "8114fd31f2d5e8b3"
             ]
         ]
     },
     {
-        "id": "ba1bd5f4b94668f7",
+        "id": "cc69d697419b7fcf",
         "type": "ui_gauge",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "group": "25a2b5d2092b71fa",
         "order": 1,
@@ -97,14 +97,14 @@
         "seg2": "27",
         "diff": false,
         "className": "",
-        "x": 970,
-        "y": 160,
+        "x": 890,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "cbfd74bf359b6e2d",
+        "id": "9b5b9326b89817fc",
         "type": "ui_gauge",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "group": "25a2b5d2092b71fa",
         "order": 2,
@@ -125,17 +125,17 @@
         "seg2": "13",
         "diff": false,
         "className": "",
-        "x": 950,
-        "y": 260,
+        "x": 870,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "b03dc2c5b33ef29e",
+        "id": "8def0e16f5d49f04",
         "type": "ui_chart",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "group": "25a2b5d2092b71fa",
-        "order": 8,
+        "order": 7,
         "width": 6,
         "height": 6,
         "label": "Durchfluss",
@@ -167,19 +167,19 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 950,
-        "y": 300,
+        "x": 870,
+        "y": 260,
         "wires": [
             []
         ]
     },
     {
-        "id": "39f94a391dd53e74",
+        "id": "5664cc2264938fdf",
         "type": "ui_chart",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "group": "25a2b5d2092b71fa",
-        "order": 7,
+        "order": 6,
         "width": 6,
         "height": 6,
         "label": "Wassertemperatur",
@@ -211,17 +211,17 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 970,
-        "y": 200,
+        "x": 890,
+        "y": 160,
         "wires": [
             []
         ]
     },
     {
-        "id": "7d397b9ece9d3c47",
+        "id": "2b21126f97ea4225",
         "type": "ui_led",
-        "z": "2c332c1972a41a76",
-        "order": 5,
+        "z": "99696e55a19fa296",
+        "order": 8,
         "group": "25a2b5d2092b71fa",
         "width": 4,
         "height": 3,
@@ -239,26 +239,26 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 930,
-        "y": 560,
+        "x": 850,
+        "y": 520,
         "wires": []
     },
     {
-        "id": "cbb528ba9fc27fe0",
+        "id": "b2b519115a12bb3b",
         "type": "mysql",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "mydb": "bc803e8d57774319",
         "name": "Datenbank",
-        "x": 950,
-        "y": 80,
+        "x": 870,
+        "y": 40,
         "wires": [
             []
         ]
     },
     {
-        "id": "0c2b93e17d333c68",
+        "id": "e5a61be626097cb1",
         "type": "function",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Daten für Datenbank vorbereiten",
         "func": "// Daten aus dem msg.payload Objekt extrahieren\nlet temperaturWert = msg.payload.temperatur;\nlet durchflussWert = msg.payload.durchfluss;\n\n// Servo-Status aus dem Flow-Kontext holen (wird von Steuerlogik-Ausgang 2 gesetzt)\nlet servoStatusBool = flow.get(\"servoStatus\"); // Holt true oder false\n\n// Wert für die Datenbank vorbereiten -> \"ON\" oder \"OFF\" für den Servo\nlet servoStatusDb = (servoStatusBool === true) ? \"ON\" : \"OFF\"; \n\n// SQL-Query als Topic setzen (unverändert)\nmsg.topic = \"INSERT INTO messwerte (temperatur, durchfluss, servo_aktiv) VALUES (?, ?, ?)\";\n\n// Das Array mit den Werten für die Platzhalter erstellen\nmsg.payload = [temperaturWert, durchflussWert, servoStatusDb];\n\nreturn msg;",
         "outputs": 1,
@@ -267,18 +267,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 80,
+        "x": 610,
+        "y": 40,
         "wires": [
             [
-                "cbb528ba9fc27fe0"
+                "b2b519115a12bb3b"
             ]
         ]
     },
     {
-        "id": "65b52e432dd6b46c",
+        "id": "4a8f207cbeecf7f8",
         "type": "mqtt out",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Servo Ansteuerung",
         "topic": "esp32/servo/set",
         "qos": "0",
@@ -289,19 +289,19 @@
         "correl": "",
         "expiry": "",
         "broker": "b18a955c8d8ca218",
-        "x": 970,
-        "y": 500,
+        "x": 890,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "adfb110afbdf18b7",
+        "id": "0f5e20f68bfd2629",
         "type": "ui_switch",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "label": "Servo Handbetrieb",
         "tooltip": "",
         "group": "25a2b5d2092b71fa",
-        "order": 6,
+        "order": 9,
         "width": 4,
         "height": 3,
         "passthru": false,
@@ -319,20 +319,20 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 370,
-        "y": 440,
+        "x": 290,
+        "y": 400,
         "wires": [
             [
-                "1eba0b0b1890494d"
+                "8114fd31f2d5e8b3"
             ]
         ]
     },
     {
-        "id": "b7151e3c1c7616a8",
+        "id": "900f1508a48262b3",
         "type": "ui_numeric",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
-        "label": "Automatikbetrieb: Schwellenwert L/min",
+        "label": "Automatikbetrieb: Schwellenwert EIN L/min",
         "tooltip": "",
         "group": "25a2b5d2092b71fa",
         "order": 3,
@@ -340,30 +340,30 @@
         "height": 2,
         "wrap": false,
         "passthru": true,
-        "topic": "ui/threshold",
+        "topic": "ui/threshold_on",
         "topicType": "str",
         "format": "{{value}}",
         "min": 0,
-        "max": 10,
-        "step": 1,
+        "max": "11",
+        "step": "0.5",
         "className": "",
-        "x": 310,
-        "y": 620,
+        "x": 250,
+        "y": 580,
         "wires": [
             [
-                "1eba0b0b1890494d"
+                "8114fd31f2d5e8b3"
             ]
         ]
     },
     {
-        "id": "5b3c92ae61fb801d",
+        "id": "473374c85a893135",
         "type": "ui_switch",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "label": "Handbetrieb EIN",
         "tooltip": "",
         "group": "25a2b5d2092b71fa",
-        "order": 4,
+        "order": 5,
         "width": 8,
         "height": 2,
         "passthru": true,
@@ -381,43 +381,43 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 370,
-        "y": 560,
+        "x": 290,
+        "y": 520,
         "wires": [
             [
-                "1eba0b0b1890494d",
-                "0b58ced94448bb94"
+                "8114fd31f2d5e8b3",
+                "880d29ed7454eea5"
             ]
         ]
     },
     {
-        "id": "1eba0b0b1890494d",
+        "id": "8114fd31f2d5e8b3",
         "type": "function",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Steuerlogik",
-        "func": "//Dies ist die Steuerlogik die entscheidet ob der Servo-Motor eingeschalten wird\n// Variablen aus dem Flow-Kontext holen (mit Standardwerten)\nlet mode = flow.get(\"controlMode\") || \"AUTO\"; // Standard: Automatik\nlet threshold = flow.get(\"flowThreshold\") || 7.0; // Standard: 7 L/min\nlet manualCommand = flow.get(\"lastManualCommand\") || \"OFF\"; // Letzter manueller Zustand\nlet currentFlow = flow.get(\"currentFlow\") || -1; // Letzter bekannter Flusswert\nlet triggeredByModeChange = false; // Flag für jede Ausführung zurücksetzen\n\n// Kontext aktualisieren basierend auf dem Auslöser der Nachricht\nif (msg.topic === 'ui/mode') {\n    mode = msg.payload;\n    flow.set(\"controlMode\", mode);\n    triggeredByModeChange = true; // Flag setzen, dass Modus geändert wurde\n} else if (msg.topic === 'ui/threshold') {\n    threshold = Number(msg.payload); // Sicherstellen, dass es eine Zahl ist\n    flow.set(\"flowThreshold\", threshold);\n} else if (msg.topic === 'ui/manual_servo') {\n    manualCommand = msg.payload;\n    flow.set(\"lastManualCommand\", manualCommand);\n} else if (typeof msg.payload === 'number' && msg.topic !== 'ui/threshold') {\n    // Annehmen, dass eine Zahl ohne bekanntes Topic der neue Flusswert ist\n    currentFlow = msg.payload;\n    flow.set(\"currentFlow\", currentFlow);\n}\n\nlet servoCommand = \"OFF\"; // Standard-Servobefehl\n\n// Logik: Entscheide den Servo-Befehl basierend auf dem Modus\nif (mode === \"MANUAL\") {\n    // Im manuellen Modus gilt der zuletzt gesetzte manuelle Befehl\n    servoCommand = manualCommand;\n} else { // AUTO Modus\n    if (currentFlow >= 0) { // Nur wenn Flusswert gültig ist\n        // Logik: Servo AN, wenn Fluss < Schwellenwert\n        if (currentFlow < threshold) {\n            servoCommand = \"ON\";\n        } else {\n            servoCommand = \"OFF\";\n        }\n    } else {\n        // Bei ungültigem Flusswert sicherheitshalber AUS\n        servoCommand = \"OFF\";\n    }\n}\n\n// Prüfung, ob MQTT-Nachricht gesendet werden soll\nlet allowMqttSend = true;\n// Senden bei Wechsel zu Manual unterdrücken\nif (triggeredByModeChange && mode === \"MANUAL\") {\n    allowMqttSend = false;\n}\n// Senden bei reiner Threshold-Änderung unterdrücken\nelse if (msg.topic === 'ui/threshold') {\n    allowMqttSend = false;\n}\n\n// Vorbereitung der MQTT-Nachricht\nlet lastSentCommand = flow.get(\"lastSentCommand\") || \"\";\nlet mqttMsg = null;\n\nif (allowMqttSend && servoCommand !== lastSentCommand) {\n    flow.set(\"lastSentCommand\", servoCommand); // Neuen Zustand für nächsten Vergleich speichern\n    mqttMsg = {\n        payload: servoCommand\n        // Das Topic wird im nachfolgenden MQTT Out Node gesetzt\n    };\n}\n\n// Nachricht für die LED im Dashboard vorbereiten (wird immer gesendet)\nlet ledMsg = { payload: (servoCommand === \"ON\") }; // true für ON, false für OFF\n\n// Nachrichten an die beiden Ausgänge senden\n// Ausgang 1: MQTT Befehl (kann null sein)\n// Ausgang 2: LED Status (immer true oder false)\nreturn [ mqttMsg, ledMsg ];",
+        "func": "// Variablen aus dem Flow-Kontext holen (mit Standardwerten)\nlet mode = flow.get(\"controlMode\") || \"AUTO\"; // Standard: Automatik\nlet thresholdOn = flow.get(\"thresholdOn\") || 9.0; // Standard EIN-Schwelle (Beispiel)\nlet thresholdOff = flow.get(\"thresholdOff\") || 10.0; // Standard AUS-Schwelle (Beispiel)\nlet manualCommand = flow.get(\"lastManualCommand\") || \"OFF\"; // Letzter manueller Zustand\nlet currentFlow = flow.get(\"currentFlow\") || -1; // Letzter bekannter Flusswert\n// Aktuellen/letzten *gesendeten* Zustand für Hysterese holen. Wichtig VOR der Logik.\nlet currentServoState = flow.get(\"lastSentCommand\") || \"OFF\";\nlet triggeredByModeChange = false; // Flag für jede Ausführung zurücksetzen\n\n// Kontext aktualisieren basierend auf dem Auslöser der Nachricht\nif (msg.topic === 'ui/mode') {\n    mode = msg.payload;\n    flow.set(\"controlMode\", mode);\n    triggeredByModeChange = true; // Flag setzen, dass Modus geändert wurde\n} else if (msg.topic === 'ui/threshold_on') { // Neuer Topic für EIN-Schwelle\n    thresholdOn = Number(msg.payload);\n    // Optional: Grundlegende Validierung, z.B. nicht negativ\n    if (thresholdOn < 0) { thresholdOn = 0; }\n    flow.set(\"thresholdOn\", thresholdOn);\n} else if (msg.topic === 'ui/threshold_off') { // Neuer Topic für AUS-Schwelle\n    thresholdOff = Number(msg.payload);\n     // Optional: Grundlegende Validierung\n    if (thresholdOff < 0) { thresholdOff = 0; }\n    flow.set(\"thresholdOff\", thresholdOff);\n} else if (msg.topic === 'ui/manual_servo') {\n    manualCommand = msg.payload;\n    flow.set(\"lastManualCommand\", manualCommand);\n} else if (typeof msg.payload === 'number' && msg.topic !== 'ui/threshold_on' && msg.topic !== 'ui/threshold_off') {\n    // Annehmen, dass eine Zahl ohne bekanntes Topic der neue Flusswert ist\n    currentFlow = msg.payload;\n    flow.set(\"currentFlow\", currentFlow);\n}\n\nlet servoCommand = \"OFF\"; // Standard-Servobefehl initialisieren\n\n// Logik: Entscheide den Servo-Befehl basierend auf dem Modus\nif (mode === \"MANUAL\") {\n    // Im manuellen Modus gilt der zuletzt gesetzte manuelle Befehl\n    servoCommand = manualCommand;\n} else { // AUTO Modus mit Hysterese\n    // Sicherheitscheck / Korrektur direkt vor der Verwendung\n    // Stellt sicher, dass AUS-Schwelle höher als EIN-Schwelle ist\n    if (thresholdOff <= thresholdOn) {\n        // Fallback: Aus-Schwelle leicht über Ein-Schwelle setzen\n        thresholdOff = thresholdOn + 1.0; // Beispiel: Aus immer mind. 1 L/min über Ein\n    }\n\n    if (currentFlow >= 0) { // Nur wenn Flusswert gültig ist\n        if (currentServoState === \"OFF\" && currentFlow < thresholdOn) {\n            // Bedingung zum EINSCHALTEN: War AUS und Fluss ist UNTER Einschalt-Schwelle gefallen\n            servoCommand = \"ON\";\n        } else if (currentServoState === \"ON\" && currentFlow >= thresholdOff) {\n            // Bedingung zum AUSSCHALTEN: War AN und Fluss ist ÜBER (oder gleich) Ausschalt-Schwelle gestiegen\n            servoCommand = \"OFF\";\n        } else {\n            // Ansonsten: Zustand beibehalten\n            servoCommand = currentServoState;\n        }\n    } else {\n        // Bei ungültigem Flusswert sicherheitshalber AUS\n        servoCommand = \"OFF\";\n    }\n}\n\n// Prüfung, ob MQTT-Nachricht gesendet werden soll\nlet allowMqttSend = true;\n// Senden bei Wechsel zu Manual unterdrücken\nif (triggeredByModeChange && mode === \"MANUAL\") {\n    allowMqttSend = false;\n}\n// Senden bei reiner Threshold-Änderung unterdrücken (jetzt für beide Schwellen)\nelse if (msg.topic === 'ui/threshold_on' || msg.topic === 'ui/threshold_off') {\n    allowMqttSend = false;\n}\n\n// Vorbereitung der MQTT-Nachricht (Optimierung: nur senden, wenn erlaubt und Befehl geändert)\n// Hole den zuletzt *tatsächlich gesendeten* Befehl für den Vergleich\nlet lastSentCommand = flow.get(\"lastSentCommand\") || \"\";\nlet mqttMsg = null;\n\nif (allowMqttSend && servoCommand !== lastSentCommand) {\n    flow.set(\"lastSentCommand\", servoCommand); // Neuen Zustand für nächsten Vergleich speichern\n    mqttMsg = {\n        payload: servoCommand\n        // Das Topic wird im nachfolgenden MQTT Out Node gesetzt\n    };\n}\n\n// Nachricht für die LED im Dashboard vorbereiten (wird immer gesendet)\nlet ledMsg = { payload: (servoCommand === \"ON\") }; // true für ON, false für OFF\n\n// Nachrichten an die beiden Ausgänge senden\n// Ausgang 1: MQTT Befehl (kann null sein)\n// Ausgang 2: LED Status (immer true oder false)\nreturn [ mqttMsg, ledMsg ];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 520,
+        "x": 550,
+        "y": 480,
         "wires": [
             [
-                "65b52e432dd6b46c"
+                "4a8f207cbeecf7f8"
             ],
             [
-                "7d397b9ece9d3c47",
-                "272c77ff32ab5c04"
+                "2b21126f97ea4225",
+                "670d14cc24668114"
             ]
         ]
     },
     {
-        "id": "0b58ced94448bb94",
+        "id": "880d29ed7454eea5",
         "type": "change",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "Servo aus",
         "rules": [
             {
@@ -433,18 +433,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 500,
+        "x": 300,
+        "y": 460,
         "wires": [
             [
-                "adfb110afbdf18b7"
+                "0f5e20f68bfd2629"
             ]
         ]
     },
     {
-        "id": "272c77ff32ab5c04",
+        "id": "670d14cc24668114",
         "type": "change",
-        "z": "2c332c1972a41a76",
+        "z": "99696e55a19fa296",
         "name": "",
         "rules": [
             {
@@ -460,11 +460,67 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 620,
+        "x": 900,
+        "y": 600,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "1ff3314c74a71efe",
+        "type": "ui_numeric",
+        "z": "99696e55a19fa296",
+        "name": "",
+        "label": "Automatikbetrieb: Schwellenwert AUS L/min",
+        "tooltip": "",
+        "group": "25a2b5d2092b71fa",
+        "order": 4,
+        "width": 8,
+        "height": 2,
+        "wrap": false,
+        "passthru": true,
+        "topic": "ui/threshold_off",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "11",
+        "step": "0.5",
+        "className": "",
+        "x": 250,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93ef7c177c088b97",
+        "type": "ui_spacer",
+        "z": "99696e55a19fa296",
+        "name": "spacer",
+        "group": "25a2b5d2092b71fa",
+        "order": 10,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "c54cdd0c522e35af",
+        "type": "ui_spacer",
+        "z": "99696e55a19fa296",
+        "name": "spacer",
+        "group": "25a2b5d2092b71fa",
+        "order": 11,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "6736fddeee55337a",
+        "type": "ui_spacer",
+        "z": "99696e55a19fa296",
+        "name": "spacer",
+        "group": "25a2b5d2092b71fa",
+        "order": 12,
+        "width": 8,
+        "height": 1
     },
     {
         "id": "b18a955c8d8ca218",
