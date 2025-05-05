@@ -20,15 +20,15 @@ import vga2_16x16 as font
 # === Konfiguration ===
 
 # -- WLAN --
-wlan_ssid = "WLAN-SSID" #Hier die zu verwendende WLAN SSID eintragen
+wlan_ssid = "WLAN-SSID"           # Hier die zu verwendende WLAN SSID eintragen
 wlan_passwort = "WLAN-Passwort"   # Hier das dazugehörige WLAN Passwort eintragen
 
 # -- MQTT --
-mqtt_broker = "IP-Adresse des MQTT-Brokers"   #IP-Adresse des MQTT-Brokers
-mqtt_port = 1883                 #Port des MQTT-Brokers (Standardmäßig 1883)
-mqtt_user = "Nutzername"                #Falls eingerichtet Nutzername und Passwort zum verbinden mit dem MQTT-Broker
+mqtt_broker = "IP-Adresse des MQTT-Brokers"     # IP-Adresse des MQTT-Brokers
+mqtt_port = 1883                                # Port des MQTT-Brokers (Standardmäßig 1883)
+mqtt_user = "Nutzername"                        # Falls eingerichtet Nutzername und Passwort zum verbinden mit dem MQTT-Broker
 mqtt_password = "Passwort"
-mqtt_publish_thema = "esp32/aquariumwerte" #Das Publish Thema bennenen. Muss übereinstimmen mit MQTT IN in Node-Red!
+mqtt_publish_thema = "esp32/aquariumwerte"      # Das Publish Thema bennenen. Muss übereinstimmen mit MQTT IN in Node-Red!
 client_id = "esp32-s3-aquarium"
 mqtt_subscribe_servo_thema = b'esp32/servo/set' #Das Subscribe Thema für die Steuerung des Servos. Muss übereinstimmen mit MQTT Out in Node-Red!
 
@@ -38,25 +38,25 @@ yfs201_sensor_pin = 4   # Daten-pin für den Durchflusssensor
 yfs201_kalibrierungsfaktor = 7.5 # Kalibrierungsfaktor wie viele Impulse pro Liter
 
 # -- Servo --
-servo_pin = 10        #Pin über den der Servo angesteuert wird
-servo_pwm_frequenz = 50
-servo_min_impuls_u16 = 1024
-servo_max_impuls_u16 = 8192
-servo_inaktive_position = 0 # Winkel für "OFF"
-servo_aktive_position = 90  # Winkel für "ON"
+servo_pin = 10                 # Pin über den der Servo angesteuert wird
+servo_pwm_frequenz = 50        # PWM-Frequenz mit der der Servo Motor angesteuert wird
+servo_min_impuls_u16 = 1024    # Wert für Servo Position bei 0°   (Muss je nach Servo Motor angepasst werden)
+servo_max_impuls_u16 = 8192    # Wert für Servo Position bei 180° (Muss je nach Servo Motor angepasst werden)
+servo_inaktive_position = 0    # Winkel für "OFF"
+servo_aktive_position = 90     # Winkel für "ON"
 
 # -- Display (ST7789) Konfiguration --
-display_spi_bus = 1
-display_spi_sck_pin = 36
-display_spi_mosi_pin = 35
+display_spi_bus = 1            # Verwendeter SPI Bus
+display_spi_sck_pin = 36       # SCL-Pin am Display
+display_spi_mosi_pin = 35      # SDA-Pin am Display
 display_spi_miso_pin = 0
-display_reset_pin = 6
-display_cs_pin = 41
-display_dc_pin = 7
-display_backlight_pin = 8
-display_breite = 240
-display_hoehe = 320
-display_rotation = 3
+display_reset_pin = 6          # Reset-Pin am Display
+display_cs_pin = 41            # CS-pin am Display
+display_dc_pin = 7             # DC-Pin am Display
+display_backlight_pin = 8      # BLK-Pin am Display
+display_breite = 240           # Display Breite
+display_hoehe = 320            # Display Höhe
+display_rotation = 3           # Blickrichtung des Displays
 
 # -- Programmablauf --
 schleifen_intervall_s = 5 # Hier könnte angepasst werden wie schnell die Schleife sich wiederholt
