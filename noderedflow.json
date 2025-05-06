@@ -20,8 +20,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 310,
-        "y": 200,
+        "x": 790,
+        "y": 420,
         "wires": [
             [
                 "030727d6473e5621",
@@ -42,8 +42,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 140,
+        "x": 1110,
+        "y": 380,
         "wires": [
             [
                 "5664cc2264938fdf",
@@ -63,8 +63,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 220,
+        "x": 1110,
+        "y": 440,
         "wires": [
             [
                 "9b5b9326b89817fc",
@@ -97,8 +97,8 @@
         "seg2": "27",
         "diff": false,
         "className": "",
-        "x": 890,
-        "y": 120,
+        "x": 1490,
+        "y": 360,
         "wires": []
     },
     {
@@ -125,8 +125,8 @@
         "seg2": "13",
         "diff": false,
         "className": "",
-        "x": 870,
-        "y": 220,
+        "x": 1470,
+        "y": 460,
         "wires": []
     },
     {
@@ -167,8 +167,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 870,
-        "y": 260,
+        "x": 1470,
+        "y": 500,
         "wires": [
             []
         ]
@@ -211,8 +211,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 890,
-        "y": 160,
+        "x": 1490,
+        "y": 400,
         "wires": [
             []
         ]
@@ -239,8 +239,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 850,
-        "y": 520,
+        "x": 1450,
+        "y": 780,
         "wires": []
     },
     {
@@ -249,8 +249,8 @@
         "z": "99696e55a19fa296",
         "mydb": "bc803e8d57774319",
         "name": "Datenbank",
-        "x": 870,
-        "y": 40,
+        "x": 1350,
+        "y": 260,
         "wires": [
             []
         ]
@@ -267,8 +267,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 40,
+        "x": 1090,
+        "y": 260,
         "wires": [
             [
                 "b2b519115a12bb3b"
@@ -289,8 +289,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b18a955c8d8ca218",
-        "x": 890,
-        "y": 460,
+        "x": 1490,
+        "y": 680,
         "wires": []
     },
     {
@@ -319,8 +319,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 290,
-        "y": 400,
+        "x": 770,
+        "y": 620,
         "wires": [
             [
                 "8114fd31f2d5e8b3"
@@ -347,8 +347,8 @@
         "max": "11",
         "step": "0.5",
         "className": "",
-        "x": 250,
-        "y": 580,
+        "x": 730,
+        "y": 800,
         "wires": [
             [
                 "8114fd31f2d5e8b3"
@@ -381,8 +381,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 290,
-        "y": 520,
+        "x": 770,
+        "y": 740,
         "wires": [
             [
                 "8114fd31f2d5e8b3",
@@ -402,8 +402,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 480,
+        "x": 1070,
+        "y": 720,
         "wires": [
             [
                 "4a8f207cbeecf7f8"
@@ -433,8 +433,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 300,
-        "y": 460,
+        "x": 360,
+        "y": 680,
         "wires": [
             [
                 "0f5e20f68bfd2629"
@@ -460,8 +460,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 600,
+        "x": 1500,
+        "y": 900,
         "wires": [
             []
         ]
@@ -486,11 +486,101 @@
         "max": "11",
         "step": "0.5",
         "className": "",
-        "x": 250,
-        "y": 640,
+        "x": 730,
+        "y": 860,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "25acfce380dd3b91",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Hier kommen die Messwerte des ESP32 im JSON Format rein.",
+        "info": "",
+        "x": 650,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2b29ed07e0865163",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Hier werden die Messwerte ans Dashboard weitergegeben",
+        "info": "",
+        "x": 1130,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9c94b4f9340fcdf2",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Hier werden die Daten für die Datenbank vorbereitet und an die Datenbank gesendet",
+        "info": "",
+        "x": 1150,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a168657c90da6ead",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Das sind die Bedienelemente auf dem Dashboard",
+        "info": "",
+        "x": 780,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "fb4729245d774981",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Sperre des Handbetrieb Schalters",
+        "info": "Die Change-Node sorgt dafür das der Handbetrieb schalter nicht betätigt werden kann wenn der Handbetrieb nicht EIN ist",
+        "x": 380,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7fbb387fa226cd3d",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Hauptlogik zum Schalten des Servos",
+        "info": "",
+        "x": 1100,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4d8fbf2d3434aa2d",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Sendet für den Servo AN oder AUS",
+        "info": "",
+        "x": 1500,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d043f0cef52b8733",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Visualisiert den Zustand des Servos",
+        "info": "",
+        "x": 1480,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "acbc2033e645e548",
+        "type": "comment",
+        "z": "99696e55a19fa296",
+        "name": "Setzt den Zustand des Servos in die msg.payload für die Datenbank",
+        "info": "",
+        "x": 1580,
+        "y": 840,
+        "wires": []
     },
     {
         "id": "93ef7c177c088b97",

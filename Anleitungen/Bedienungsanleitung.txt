@@ -1,6 +1,6 @@
 Bedienungsanleitung: Strömungsmessung eines Aquarienfilters
-Version: 1.0
-Datum: 05.05.2025
+Version: 1.1
+Datum: 06.05.2025
 
 1. Einleitung
 Diese Anleitung beschreibt die Bedienung des Node-RED Dashboards zur Überwachung deiner Aquarium-Werte (Temperatur, Durchfluss) und zur Steuerung des angeschlossenen Servos.
@@ -12,39 +12,27 @@ http://<IP-Adresse-von-Node-RED>:1880/ui
 
 3. Übersicht der Elemente
 Auf dem Dashboard findest du verschiedene Anzeigen und Steuerelemente:
-
 Temperaturanzeige: Zeigt die aktuell vom ESP32 gemessene Wassertemperatur in Grad Celsius an.
-
 Durchflussanzeige: Zeigt die aktuell vom ESP32 gemessene Durchflussrate in Litern pro Minute (L/min) an.
-
 Chart: Stellt den zeitlichen Verlauf von Temperatur und Durchfluss grafisch dar.
-
 Handbetrieb EIN: Mit diesem Schalter wählst du zwischen den beiden Modi für den Servo:
-	AUTO: Der Servo wird automatisch gesteuert, basierend auf dem Vergleich zwischen dem aktuellen Durchfluss und dem eingestellten Schwellenwert.
-	Handbetrieb: Du kannst den Servo direkt über den "Servo Handbetrieb"-Schalter ein- und ausschalten.
-
+AUTO: Der Servo wird automatisch gesteuert, basierend auf dem Vergleich zwischen dem aktuellen Durchfluss und dem eingestellten Schwellenwert.
+Handbetrieb: Du kannst den Servo direkt über den "Servo Handbetrieb"-Schalter ein- und ausschalten.
 Schwellenwert EIN (L/min): Dieses Eingabefeld ist nur im AUTO-Modus relevant. Hier stellst du ein, unterhalb welcher Durchflussrate der Servo aktiviert werden soll.
-
 Schwellenwert AUS (L/min): Dieses Eingabefeld ist nur im AUTO-Modus relevant. Hier stellst du ein, oberhalb welcher Durchflussrate der Servo wieder deaktiviert werden soll.
-
 Servo Handbetrieb Schalter: Mit diesem Schalter kannst du den Servo direkt ein- oder ausschalten. Wichtig: Dieser Schalter ist nur aktiv und bedienbar, wenn der "Handbetrieb EIN"-Schalter auf EIN steht. Im AUTO-Modus ist er ausgegraut.
-
 Servo Status LED: Diese LED zeigt den aktuellen Soll-Zustand des Servos an. Leuchtet sie grün bedeutet das "AN". Sie zeigt den Zustand an, den die Logik gerade für den Servo vorsieht.
 
 4. Bedienung: Automatikmodus
 Stelle den "Handbetrieb EIN"-Schalter auf AUS.
+Gib im Feld "Schwellenwert EIN" den gewünschten Wert in L/min ein, unterhalb dessen der Servo aktiv werden soll.
+Gib im Feld "Schwellenwert AUS" den gewünschten Wert in L/min ein, oberhalb dessen der Servo inaktiv werden soll. (Sollte etwas höher sein als der „Schwellenwert EIN“ Wert da sonst der Servo wieder aktiv wird.)
 
-Gib im Feld "Schwellenwert" den gewünschten Wert in L/min ein, unterhalb dessen der Servo aktiv werden soll.
-
-Das System steuert den Servo nun automatisch: Fällt der gemessene Durchfluss unter den eingestellten Schwellenwert, wird der Servo aktiviert (Status LED wird AN). Steigt der Durchfluss wieder über den Schwellenwert, wird der Servo deaktiviert.
-
+Das System steuert den Servo nun automatisch: Fällt der gemessene Durchfluss unter den eingestellten Schwellenwert EIN, wird der Servo aktiviert (Status LED geht AN). Steigt der Durchfluss wieder über den Schwellenwert AUS, wird der Servo deaktiviert.
 Der "Servo Handbetrieb"-Schalter ist in diesem Modus deaktiviert.
 
 5. Bedienung: Manueller Modus
 Stelle den "Handbetrieb EIN"-Schalter auf EIN.
-
 Der "Servo Handbetrieb"-Schalter wird nun aktiv.
-
 Benutze den "Servo Handbetrieb"-Schalter, um den Servo nach Bedarf ein- oder auszuschalten. Die Status-LED zeigt den gewählten Zustand an.
-
 Der eingestellte Schwellenwert hat in diesem Modus keine Auswirkung auf den Servo.
