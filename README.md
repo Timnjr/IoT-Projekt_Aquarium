@@ -41,7 +41,7 @@ manuell über das Dashboard erfolgen.
     * Hauptskript: `aquarium_esp32.py`
 * **Node-RED:**
     * Laufende Node-RED Instanz
-    * Installierte Nodes: `node-red-dashboard`, `node-red-node-mysql`
+    * Installierte Nodes: `node-red-dashboard`, `node-red-node-mysql`, `node-red-contrib-ui-led`
     * Importierter Flow (JSON-Datei)
 * **MQTT Broker:**
     * Ein erreichbarer MQTT Broker (z.B. Mosquitto)
