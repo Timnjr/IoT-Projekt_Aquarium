@@ -37,7 +37,7 @@ manuell über das Dashboard erfolgen.
 
 * **ESP32:**
     * MicroPython Firmware
-    * Benötigte MicroPython-Bibliotheken: `umqtt.simple`, `onewire`, `ds18x20`, `st7789py`, `vga2_16x16`
+    * Benötigte MicroPython-Bibliotheken: `umqtt.simple`, `ds18x20`, `st7789py`, `vga2_16x16`
     * Hauptskript: `aquarium_esp32.py`
 * **Node-RED:**
     * Laufende Node-RED Instanz
