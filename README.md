@@ -88,8 +88,8 @@ manuell über das Dashboard erfolgen.
 * Aktuelle Werte für Temperatur und Durchfluss beobachten.
 * Den Chart für historische Verläufe ansehen.
 * Den Betriebsmodus (AUTO/MANUAL) über den entsprechenden Schalter wählen.
-* Im AUTO-Modus den Schwellenwert für den Durchfluss über das numerische Eingabefeld anpassen.
-* Im MANUAL-Modus den Servo über den "Servo Manuell"-Schalter direkt ein- und ausschalten.
+* Im AUTO-Modus den Schwellenwert für den Durchfluss über das Eingabefeld anpassen.
+* Im MANUAL-Modus den Servo über den "Servo Handbetrieb"-Schalter direkt ein- und ausschalten.
 * Die LED-Anzeige zeigt den aktuell von der Logik berechneten Soll-Zustand des Servos an.
 * Die Daten werden automatisch in die MariaDB-Datenbank geloggt.
 
